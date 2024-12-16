@@ -18,7 +18,7 @@ variables:
   - name: imageRepository
     value: "dapalpha"
   - name: dockerfilePath
-    value: "$(Build.SourcesDirectory)/app/Dockerfile"
+    value: "$(Build.SourcesDirectory)/gascd_app/Dockerfile"
   - name: tag
     value: "$(Build.BuildId)"
   - name: vmImageName
