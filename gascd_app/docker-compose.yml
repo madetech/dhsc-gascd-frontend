@@ -1,0 +1,12 @@
+services:
+    app:
+        container_name: gascd_app
+        image: gascd_frontend_image
+        build:
+            context: .
+            args:
+                CONTAINER_PORT: ${CONTAINER_PORT}
+        ports:
+            - '${HOST_PORT}:${CONTAINER_PORT}'
+        env_file:
+            - .env

@@ -1,0 +1,87 @@
+[
+  {
+    "location_name": "Barnsley Metropolitan Borough Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.01
+  },
+  {
+    "location_name": "Bath and North East Somerset Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.02
+  },
+  {
+    "location_name": "BCP Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.03
+  },
+  {
+    "location_name": "Bedford Borough Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.05
+  },
+  {
+    "location_name": "Birmingham City Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.06
+  },
+  {
+    "location_name": "Blackburn with Darwen Borough Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.05
+  },
+  {
+    "location_name": "Blackpool Borough Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.024
+  },
+  {
+    "location_name": "Bolton Metropolitan Borough Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.021
+  },
+  {
+    "location_name": "Bracknell Forest Borough Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.11
+  },
+  {
+    "location_name": "Brighton and Hove City Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.031
+  },
+  {
+    "location_name": "Bristol City Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.09
+  },
+  {
+    "location_name": "Buckinghamshire County Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.045
+  },
+  {
+    "location_name": "Bury Metropolitan Borough Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.049
+  },
+  {
+    "location_name": "Calderdale Metropolitan Borough Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.011
+  },
+  {
+    "location_name": "Cambridgeshire County Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.019
+  },
+  {
+    "location_name": "Central Bedfordshire Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.024
+  },
+  {
+    "location_name": "Cheshire East Council",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.07
+  }
+]

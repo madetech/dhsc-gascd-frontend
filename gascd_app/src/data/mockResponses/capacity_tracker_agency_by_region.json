@@ -1,0 +1,47 @@
+[
+  {
+    "location_name": "North West",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.1
+  },
+  {
+    "location_name": "London",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.2
+  },
+  {
+    "location_name": "South East",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.3
+  },
+  {
+    "location_name": "East of England",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.4
+  },
+  {
+    "location_name": "South West",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.5
+  },
+  {
+    "location_name": "East Midlands",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.6
+  },
+  {
+    "location_name": "Yorkshire and The Humber",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.7
+  },
+  {
+    "location_name": "West Midlands",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.8
+  },
+  {
+    "location_name": "North East",
+    "metric": "Percentage of total hours worked that are agency",
+    "value": 0.9
+  }
+]

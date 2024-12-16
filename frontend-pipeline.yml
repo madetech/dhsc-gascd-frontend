@@ -1,0 +1,103 @@
+# Docker
+
+# Build and push an image to Azure Container Registry
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+  - main
+
+resources:
+  - repo: self
+
+variables:
+  # Variable groups
+  - group: acr_service_connection
+  - group: arm_service_connection
+  - group: docker_build_arguments
+  # Hardcoded variables
+  - name: imageRepository
+    value: "dapalpha"
+  - name: dockerfilePath
+    value: "$(Build.SourcesDirectory)/app/Dockerfile"
+  - name: tag
+    value: "$(Build.BuildId)"
+  - name: vmImageName
+    value: "ubuntu-latest"
+
+# Environment parameters to iterate through
+parameters:
+  - name: environments
+    type: object
+    default:
+      - name: dev
+        arm_connection: "$(dev_arm_service_connections)"
+        acr_connection: "$(dev_acr_connection)"
+        acr_name: "$(dev_acr_name)"
+        container_port: "$(dev_container_port)"
+      - name: prod
+        arm_connection: "$(prod_arm_service_connections)"
+        acr_connection: "$(prod_acr_connection)"
+        acr_name: "$(prod_acr_name)"
+        container_port: "$(prod_container_port)"
+
+stages:
+  # Build/deploy across environments
+  - ${{ each environment in parameters.environments}}:
+      # Build
+      - stage: Build_${{environment.name}}
+        displayName: "${{environment.name}}: Build and push stage"
+        condition: succeeded()
+        jobs:
+          - deployment: Build
+            displayName: Build
+            environment: "${{environment.name}}"
+            pool:
+              vmImage: $(vmImageName)
+            strategy:
+              runOnce:
+                deploy:
+                  steps:
+                    - checkout: self
+                    - task: Docker@2
+                      displayName: Build an image
+                      inputs:
+                        command: build
+                        repository: $(imageRepository)
+                        dockerfile: $(dockerfilePath)
+                        containerRegistry: ${{environment.acr_connection}}
+                        arguments: >
+                          --build-arg CONTAINER_PORT=${{environment.container_port}}
+                          --build-arg NEXT_PUBLIC_APP_ENV=${{environment.name}}
+                        tags: |
+                          $(tag)
+                          latest
+
+                    - task: Docker@2
+                      displayName: Push an image to container registry
+                      inputs:
+                        command: push
+                        repository: $(imageRepository)
+                        containerRegistry: ${{environment.acr_connection}}
+                        tags: |
+                          $(tag)
+                          latest
+      # Deploy
+      - stage: Deploy_${{environment.name}}
+        displayName: "${{environment.name}}: Deploy to Azure Web App"
+        condition: succeeded()
+        jobs:
+          - deployment: Deploy
+            displayName: Deploy
+            environment: "${{environment.name}}"
+            pool:
+              vmImage: "ubuntu-latest"
+            strategy:
+              runOnce:
+                deploy:
+                  steps:
+                    - task: AzureWebAppContainer@1
+                      inputs:
+                        appType: "webAppLinux"
+                        appName: "dapalpha-${{environment.name}}-app"
+                        azureSubscription: ${{environment.arm_connection}}
+                        containers: "${{environment.acr_name}}.azurecr.io/$(imageRepository):$(tag)"

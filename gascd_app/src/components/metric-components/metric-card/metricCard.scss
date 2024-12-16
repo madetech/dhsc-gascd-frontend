@@ -1,0 +1,9 @@
+@import "../../../styles/variables.scss";
+
+.dhsc-view-metric-card-link {
+  color: $govuk-brand-colour;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
