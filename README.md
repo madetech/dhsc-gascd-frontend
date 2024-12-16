@@ -1,4 +1,4 @@
-# dhsc-alpha-frontend
+# DHSC Get Adult Social Care Data Frontend Repository
 
 [![Build Status](https://dev.azure.com/DHSCSCDAPAlpha/DAP%20Alpha/_apis/build/status%2FFrontend?branchName=main)](https://dev.azure.com/DHSCSCDAPAlpha/DAP%20Alpha/_build/latest?definitionId=4&branchName=main)
 
