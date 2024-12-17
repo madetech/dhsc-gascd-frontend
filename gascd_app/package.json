@@ -9,7 +9,8 @@
     "start": "next start -p $CONTAINER_PORT",
     "lint": "eslint .",
     "format": "prettier --write",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "test": "jest"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": "eslint --config eslint.config.js",
@@ -27,7 +28,11 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
     "@types/govuk-frontend": "^5.7.0",
+    "@types/jest": "^29.5.14",
     "@types/node": "22.10.1",
     "@types/react": "^18.3.3",
     "@typescript-eslint/eslint-plugin": "^8.18.0",
@@ -38,9 +43,13 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
     "husky": "^9.1.7",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.2.11",
     "prettier": "^3.4.2",
     "sass": "^1.82.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
     "typescript": "5.7.2",
     "typescript-eslint": "^8.0.1"
   }
