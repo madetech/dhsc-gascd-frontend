@@ -5,7 +5,9 @@ import { CapacityTrackerTotalHoursAgencyWorked } from "../data/interfaces/Capaci
 
 async function getAuthHeaders(): Promise<Record<string, string>> {
   const token: string = await fetch(
-    `https://gascd-dev-app.azurewebsites.net/.auth/me`
+    `https://dapalpha-${
+      process.env.NEXT_PUBLIC_APP_ENV
+    }-app.azurewebsites.net/.auth/me`
   )
     .then((response) => response.json())
     .then((data) => data[0].id_token);
@@ -27,7 +29,9 @@ export async function getCapacityTrackerData(locationLevel: string) {
     try {
       const response: AxiosResponse<CapacityTrackerTotalHoursAgencyWorked[]> =
         await axios.get(
-          `https://gascd-func-app-dev.azurewebsites.net/api/get_capacity_tracker_data`,
+          `https://dapalpha-func-app-${
+            process.env.NEXT_PUBLIC_APP_ENV
+          }.azurewebsites.net/api/get_capacity_tracker_data`,
           {
             params: { location_level: locationLevel },
             headers: await getAuthHeaders(),
