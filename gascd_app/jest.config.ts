@@ -1,0 +1,17 @@
+import { Config } from 'jest';
+
+const config: Config = {
+  testEnvironment: 'jsdom',
+  testMatch: ['<rootDir>/tests/**/*.(test|spec).(ts|tsx)'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  transform: {
+    '^.+\\.(ts|tsx)$': 'ts-jest',
+  },
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^@/test-utils/(.*)$': '<rootDir>/tests/utils/$1',
+  },
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+};
+
+export default config;
