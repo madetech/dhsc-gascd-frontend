@@ -81,6 +81,25 @@ stages:
                         tags: |
                           $(tag)
                           latest
+      # Test
+      - stage: Test_${{environment.name}}
+        displayName: "${{environment.name}}: Run jest tests"
+        dependsOn: Build_${{environment.name}}
+        condition: succeeded()
+        jobs:
+          - job: JestTest
+            displayName: Run Jests Tests
+            pool:
+              vmImage: "ubuntu-latest"
+            steps:
+              - checkout: self
+              - task: UseNode@2
+                inputs:
+                  versionSpec: "18.x"
+              - script: npm install
+                displayName: install dependencies
+              - script: npm run test
+                displayName: Run Jest Tests
       # Deploy
       - stage: Deploy_${{environment.name}}
         displayName: "${{environment.name}}: Deploy to Azure Web App"
