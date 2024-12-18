@@ -1,6 +1,0 @@
-#!/bin/sh
-"$(dirname "$0")/husky.sh"
-
-echo "Running linter and Prettier"
-cd gascd_app
-npx lint-staged

@@ -142,3 +142,5 @@ __azurite_db*__.json
 next-env.d.ts
 
 .vscode
+
+/.husky
