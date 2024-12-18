@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import ButtonWithArrow from '@/components/common/buttons/navigation/button-with-arrow/ButtonWithArrow';
 
 describe('ButtonWithArrow Component', () => {
-  const buttonText = 'Click me';
+  const buttonText = 'Click here';
   const buttonUrl = '/url';
 
   it('Renders button with correct button string and href', () => {
