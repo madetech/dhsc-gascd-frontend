@@ -93,9 +93,9 @@ stages:
               vmImage: "ubuntu-latest"
             steps:
               - checkout: self
-              - task: UseNode@2
+              - task: NodeTool@0
                 inputs:
-                  versionSpec: "18.x"
+                  versionSpec: '16.x'
               - script: npm install
                 displayName: install dependencies
               - script: npm run test
