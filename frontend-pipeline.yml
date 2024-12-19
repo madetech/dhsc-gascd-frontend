@@ -99,13 +99,14 @@ stages:
               - script: npm install
                 displayName: install dependencies
                 workingDirectory: gascd_app
-              - script: npm run test
+              - script: npm run test -- --reporters=default --reporters=jest-junit --outputFile=gascd_app/junit.xml
                 displayName: Run Jest Tests
                 workingDirectory: gascd_app
               - task: PublishTestResults@2
                 displayName: Publish Test Results
                 inputs:
                   testResultsFormat: "JUnit"
+                  searchFolder: "$(Build.SourcesDirectory)"
                   testResultsFiles: "gascd_app/junit.xml"
                   failTaskOnFailedTests: true
       # Deploy
