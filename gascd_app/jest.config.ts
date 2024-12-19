@@ -3,6 +3,7 @@ import { Config } from 'jest';
 const config: Config = {
   testEnvironment: 'jsdom',
   testMatch: ['<rootDir>/tests/**/*.(test|spec).(ts|tsx)'],
+  testResultsProcessor: 'jest-junit',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
