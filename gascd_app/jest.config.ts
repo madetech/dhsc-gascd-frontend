@@ -12,6 +12,12 @@ const config: Config = {
     '^@/test-utils/(.*)$': '<rootDir>/tests/utils/$1',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  globals: {
+    'ts-jest': {
+      tsconfig: '<rootDir>/tsconfig.jest.json'
+    }
+  },
+  reporters: ['default'], 
 };
 
 export default config;
